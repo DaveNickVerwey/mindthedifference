@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Masterclass Mind the Difference, 25 november 2026, Den Haag</title>
+  <meta name="description" content="Gratis masterclass voor Nederlandse én internationale studenten. 25 november in The Grey Space in the Middle, Den Haag. Dutch or English? You can always join in." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/akzidenz-grotesk-black.woff2" as="font" type="font/woff2" crossorigin />
+
+  <style>
+    @font-face {
+      font-family: 'Akzidenz-Grotesk';
+      src: url('fonts/akzidenz-grotesk-black.woff2') format('woff2');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    body {
+      margin: 0;
+      font-family: 'Jost', 'Trebuchet MS', system-ui, sans-serif;
+      color: #1a1a1a;
+      background: #fefdf9;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Kleuren uit poster ─── */
+    :root {
+      --koraal: #E93E68;
+      --geel: #F5D53E;
+      --cyaan: #7DD3E8;
+      --groen: #A8CE4C;
+      --roze: #F49BBE;
+      --oranje: #F5A73E;
+      --lichtroze: #F6C7D9;
+      --teal: #3E9AAB;
+      --paars: #7B5FC9;
+      --tekst: #1a1a1a;
+      --tekst-zacht: #4a4a4a;
+      --achtergrond: #fefdf9;
+    }
+
+    /* ─── Typografie ─── */
+    h1, h2, h3 {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 900; line-height: 1.05; margin: 0 0 0.5em;
+      text-transform: uppercase; letter-spacing: 0.01em;
+    }
+    h1 { font-size: clamp(2.5rem, 7vw, 5rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.1rem, 2.2vw, 1.35rem); }
+    p { margin: 0 0 1em; }
+    a { color: var(--koraal); text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid var(--paars);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ─── Skip link ─── */
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem;
+      background: var(--paars); color: white;
+      padding: 0.75rem 1.25rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; z-index: 1000;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ─── Welcome sticker (hero rechtsboven) ─── */
+    .sticker {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      z-index: 5;
+      background: var(--geel);
+      color: var(--tekst);
+      padding: 0.8rem 1.1rem 0.7rem;
+      border: 3px solid var(--tekst);
+      border-radius: 12px;
+      box-shadow: 4px 4px 0 var(--tekst);
+      transform: rotate(4deg);
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em;
+      font-size: 0.78rem; line-height: 1.25;
+      max-width: 180px; text-align: center;
+    }
+    @media (max-width: 720px) {
+      .sticker {
+        top: 0.75rem; right: 0.75rem;
+        font-size: 0.68rem;
+        max-width: 140px;
+        padding: 0.5rem 0.75rem;
+        box-shadow: 3px 3px 0 var(--tekst);
+      }
+    }
+
+    /* ─── Top / taalschakelaar ─── */
+    .top {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(254,253,249,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .logo-text {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 900; font-size: 1rem; color: var(--tekst);
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.02em;
+    }
+    .lang { display: flex; background: white; border: 2px solid var(--tekst); border-radius: 999px; overflow: hidden; }
+    .lang button {
+      background: transparent; border: none; padding: 0.5rem 1.1rem;
+      font-family: inherit; font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; color: var(--tekst);
+    }
+    .lang button.actief { background: var(--tekst); color: white; }
+
+    /* ─── Layout ─── */
+    section { padding: 6.5rem 1.5rem; }
+    @media (max-width: 720px) {
+      section { padding: 4.5rem 1.25rem; }
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    .wrap-smal { max-width: 720px; margin: 0 auto; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 0 0 4rem;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-foto-strook {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 4px solid var(--tekst);
+    }
+    .hero-content-wrap {
+      padding: 3.5rem 1.5rem 1rem;
+      width: 100%;
+      position: relative;
+      display: flex; justify-content: center;
+    }
+    @media (max-width: 720px) {
+      .hero-foto-strook { height: 220px; border-bottom-width: 3px; }
+      .hero-content-wrap { padding: 2.5rem 1rem 1rem; }
+    }
+    .hero-inhoud { position: relative; z-index: 2; max-width: 940px; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--paars); color: white;
+      padding: 0.55rem 1.1rem 0.45rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      line-height: 1;
+    }
+    .hero h1 { color: var(--koraal); margin-bottom: 1rem; }
+    .hero-tag {
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      color: var(--tekst); font-weight: 900; margin-bottom: 2rem;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.4;
+    }
+    .hero-info {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .hero-info span {
+      background: white; border: 2px solid var(--tekst);
+      padding: 0.5rem 1rem; border-radius: 999px;
+      font-weight: 500; font-size: 0.92rem;
+    }
+    .hero-notitie {
+      font-size: 0.95rem; color: var(--tekst-zacht);
+      max-width: 540px; margin: 0 auto 1.75rem;
+      line-height: 1.55;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--koraal); color: white;
+      padding: 1rem 2.25rem;
+      border-radius: 999px;
+      text-decoration: none; font-weight: 900; font-size: 1.05rem;
+      border: 3px solid var(--tekst);
+      box-shadow: 6px 6px 0 var(--tekst);
+      transition: transform 0.15s, box-shadow 0.15s;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .cta:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--tekst); }
+    .cta:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--tekst); }
+
+    /* ─── Poppetjes als losse accenten over de pagina ─── */
+    .poppetje-accent {
+      position: absolute;
+      pointer-events: none;
+      height: auto;
+      z-index: 1;
+    }
+    /* Hero: poppetje rechtsonder in content-gebied */
+    .hero .poppetje-accent {
+      right: -30px; bottom: 20px;
+      width: 240px;
+      transform: rotate(-6deg);
+    }
+    /* Over sectie: linksonder, groter */
+    .over .poppetje-accent {
+      left: -40px; bottom: -60px;
+      width: 360px;
+      transform: rotate(8deg);
+      z-index: 0;
+    }
+    /* Challenge: poppetje nu linksboven (foto neemt rechts over) */
+    .challenge .poppetje-accent {
+      left: 2%; top: 10%;
+      width: 160px;
+      transform: rotate(-10deg);
+      z-index: 2;
+    }
+    /* Halve cirkel foto rechts (2/3 zichtbaar) */
+    .halve-cirkel-foto {
+      position: absolute;
+      right: -180px; top: 50%;
+      transform: translateY(-50%);
+      width: 540px; height: 540px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--tekst);
+      box-shadow: -6px 6px 0 var(--tekst);
+      z-index: 1;
+    }
+    @media (max-width: 900px) {
+      .halve-cirkel-foto { width: 400px; height: 400px; right: -133px; }
+    }
+    @media (max-width: 720px) {
+      .halve-cirkel-foto { display: none; }
+    }
+    /* Voor wie: linksonder */
+    .voorwie .poppetje-accent {
+      right: -30px; top: 20%;
+      width: 200px;
+      transform: rotate(6deg);
+      z-index: 0;
+    }
+    /* Alle secties die een poppetje bevatten moeten relative + overflow:hidden hebben */
+    section.hero, section.over, section.challenge, section.voorwie {
+      position: relative; overflow: hidden;
+    }
+    @media (max-width: 720px) {
+      .hero .poppetje-accent { width: 180px; right: -20px; bottom: -20px; }
+      .over .poppetje-accent { width: 180px; left: -25px; bottom: -30px; }
+      .challenge .poppetje-accent { width: 100px; left: 1rem; top: 1rem; }
+      .voorwie .poppetje-accent { width: 120px; right: -15px; top: 1rem; }
+    }
+
+    /* ─── Over het event ─── */
+    .over {
+      background: var(--geel);
+      position: relative; overflow: hidden;
+    }
+    .over-inhoud { position: relative; z-index: 1; }
+    .over h2 { color: var(--tekst); }
+    .over p { font-size: 1.05rem; }
+    .over .lead {
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      font-weight: 700; line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+    .over strong { font-weight: 700; }
+
+    /* ─── Vragen-sectie (4 grote regels) ─── */
+    .vragen { background: var(--achtergrond); }
+    .vragen h2 { text-align: center; margin-bottom: 2.5rem; }
+    .vragen-lijst p {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      line-height: 1.3;
+      text-align: center;
+      color: var(--tekst);
+      margin: 0 0 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--tekst);
+    }
+    .vragen-lijst p:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .vragen-lijst p:nth-child(1) { color: var(--koraal); }
+    .vragen-lijst p:nth-child(2) { color: var(--paars); }
+    .vragen-lijst p:nth-child(3) { color: var(--teal); }
+    .vragen-lijst p:nth-child(4) { color: var(--oranje); }
+
+    /* ─── Wat ga je doen (kaarten) ─── */
+    .wat h2 { text-align: center; margin-bottom: 0.5rem; }
+    .wat .subtitel { text-align: center; margin-bottom: 2.5rem; color: var(--tekst-zacht); max-width: 580px; margin-left: auto; margin-right: auto; }
+    .kaarten {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+    .kaart {
+      background: white; border: 3px solid var(--tekst);
+      border-radius: 16px;
+      padding: 2rem 1.4rem 1.75rem;
+      position: relative;
+      box-shadow: 5px 5px 0 var(--tekst);
+      text-align: center;
+    }
+    .kaart-nr {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--koraal); color: white;
+      padding: 0.45rem 0.75rem 0.35rem; border-radius: 999px;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: 0.72rem; letter-spacing: 0.1em;
+      border: 2px solid var(--tekst);
+      line-height: 1;
+    }
+    .kaart h3 { color: var(--tekst); margin: 0.25rem 0 0.6rem; }
+    .kaart p { color: var(--tekst-zacht); font-size: 0.92rem; margin: 0; line-height: 1.55; }
+
+    /* ─── Programma (tijdlijn) ─── */
+    .programma { background: var(--achtergrond); border-top: 3px solid var(--tekst); border-bottom: 3px solid var(--tekst); }
+    .programma h2 { text-align: center; margin-bottom: 0.5rem; }
+    .programma > .wrap-smal > .subtitel { text-align: center; margin-bottom: 2.5rem; color: var(--tekst-zacht); }
+    .tijdlijn { display: flex; flex-direction: column; gap: 0.75rem; }
+    .tijdlijn-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: white;
+      border: 2px solid var(--tekst);
+      border-radius: 12px;
+      align-items: baseline;
+    }
+    @media (max-width: 500px) {
+      .tijdlijn-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+    .tijdlijn-tijd {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: 1.05rem; color: var(--koraal);
+      letter-spacing: 0.02em;
+    }
+    .tijdlijn-inhoud strong {
+      display: block; font-weight: 900; margin-bottom: 3px;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.98rem;
+    }
+    .tijdlijn-inhoud span { color: var(--tekst-zacht); font-size: 0.92rem; line-height: 1.55; }
+
+    /* ─── Challenge sectie (prominent) ─── */
+    .challenge {
+      background: var(--koraal);
+      color: white;
+      position: relative; overflow: hidden;
+    }
+    .challenge::before {
+      content: ''; position: absolute; top: -80px; left: -80px;
+      width: 240px; height: 240px; border-radius: 50%;
+      background: var(--geel); opacity: 0.25;
+    }
+    .challenge::after {
+      content: ''; position: absolute; bottom: -100px; right: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: var(--paars); opacity: 0.3;
+    }
+    .challenge-inhoud { position: relative; z-index: 1; text-align: center; }
+    .challenge .badge {
+      display: inline-block; background: var(--geel); color: var(--tekst);
+      padding: 0.55rem 1rem 0.45rem; border-radius: 999px;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1.25rem; border: 2px solid var(--tekst);
+      line-height: 1;
+    }
+    .challenge h2 { color: white; }
+    .challenge .tagline {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; letter-spacing: 0.08em;
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+      line-height: 1.4; margin: -0.25rem 0 1.75rem;
+      color: var(--geel); text-transform: uppercase;
+    }
+    .challenge p { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.95); }
+    .challenge .optioneel {
+      display: inline-block; margin-top: 1rem;
+      background: rgba(255,255,255,0.15); padding: 0.5rem 1rem;
+      border-radius: 999px; font-size: 0.9rem; font-weight: 700;
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .challenge .toelichting {
+      margin-top: 1.75rem;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--geel);
+      font-weight: 500;
+    }
+    .challenge-uitklap {
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 0;
+      text-align: left;
+    }
+    .challenge-uitklap[open] {
+      background: rgba(255,255,255,0.95);
+      color: var(--tekst);
+    }
+    .challenge-uitklap summary {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.9rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      color: white;
+    }
+    .challenge-uitklap[open] summary { color: var(--tekst); }
+    .challenge-uitklap summary::-webkit-details-marker { display: none; }
+    .challenge-uitklap summary::after {
+      content: '+';
+      font-size: 1.5rem; line-height: 1;
+      transition: transform 0.2s;
+    }
+    .challenge-uitklap[open] summary::after { content: '−'; }
+    .challenge-detail {
+      padding: 0 1.25rem 1.25rem;
+      font-size: 0.95rem; line-height: 1.65;
+    }
+    .challenge-detail p { color: var(--tekst); margin: 0 0 1rem; }
+    .challenge-detail p:last-child { margin-bottom: 0; }
+
+    /* ─── Toegankelijkheid sectie ─── */
+    .toegankelijkheid { background: var(--geel); }
+    .toegankelijkheid h2 { color: var(--tekst); margin-bottom: 1.5rem; }
+    .toegankelijkheid p { font-size: 1.02rem; line-height: 1.7; }
+
+    /* ─── Taal-sectie ─── */
+    .taalblok { background: var(--achtergrond); }
+    .taalblok h2 { color: var(--tekst); text-align: center; margin-bottom: 1.5rem; }
+    .taalblok p { font-size: 1.05rem; }
+    .taalblok .quote {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      line-height: 1.3; text-align: center;
+      color: var(--tekst); margin: 1.5rem auto;
+      padding: 1.5rem; background: var(--roze);
+      border: 3px solid var(--tekst); border-radius: 16px;
+      box-shadow: 5px 5px 0 var(--tekst);
+      max-width: 580px;
+    }
+
+    /* ─── Voor wie ─── */
+    .voorwie { background: var(--cyaan); }
+    .voorwie h2 { color: var(--tekst); }
+    .voorwie-lijst {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .voorwie-lijst div {
+      background: rgba(255,255,255,0.75);
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .voorwie-lijst div::before { content: '✓'; color: var(--koraal); font-weight: 900; font-size: 1.2rem; }
+
+    /* ─── Aanmelden ─── */
+    .aanmelden { background: linear-gradient(180deg, var(--achtergrond) 0%, var(--lichtroze) 100%); }
+    .aanmelden h2 { text-align: center; margin-bottom: 0.5rem; }
+    .aanmelden .subtitel { text-align: center; margin-bottom: 2.5rem; color: var(--tekst-zacht); font-size: 1.05rem; }
+    .formulier {
+      background: white; border: 3px solid var(--tekst);
+      border-radius: 20px; padding: 2rem;
+      box-shadow: 8px 8px 0 var(--tekst);
+    }
+    .veld { margin-bottom: 1.25rem; }
+    .veld label { display: block; font-weight: 700; margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .veld .hulp { display: block; font-size: 0.85rem; color: var(--tekst-zacht); margin-bottom: 0.4rem; font-weight: 400; }
+    .veld input, .veld select, .veld textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 2px solid var(--tekst);
+      border-radius: 10px; font-family: inherit; font-size: 1rem;
+      background: white;
+    }
+    .rij { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .rij { grid-template-columns: 1fr; } }
+
+    .radio-groep { display: flex; flex-direction: column; gap: 0.6rem; }
+    .radio-item {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      background: #fafafa; padding: 0.85rem 1rem; border-radius: 10px;
+      border: 2px solid transparent; cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .radio-item:hover { background: #f0f0f0; }
+    .radio-item:has(input:checked) { border-color: var(--koraal); background: white; }
+    .radio-item input[type="radio"] { margin-top: 4px; flex-shrink: 0; width: auto; accent-color: var(--koraal); }
+    .radio-item .radio-label { font-size: 0.95rem; }
+
+    .submit-knop {
+      width: 100%; margin-top: 1rem;
+      background: var(--koraal); color: white;
+      padding: 1rem 2rem; border: 3px solid var(--tekst);
+      border-radius: 999px; font-weight: 900; font-size: 1.1rem;
+      cursor: pointer; font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      box-shadow: 6px 6px 0 var(--tekst);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .submit-knop:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--tekst); }
+    .submit-knop:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--tekst); }
+    .submit-knop:disabled { background: #999; cursor: not-allowed; }
+
+    .melding {
+      margin-top: 1rem; padding: 1rem; border-radius: 10px;
+      font-weight: 500; text-align: center;
+    }
+    .melding.succes { background: var(--groen); color: var(--tekst); font-weight: 700; }
+    .melding.fout { background: #ffe0e0; color: #a00020; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--tekst); color: white;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    footer p { margin: 0.5rem 0; }
+    footer a { color: var(--geel); }
+    footer .payoff {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--geel); font-weight: 900; margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    footer .korting {
+      background: rgba(245, 213, 62, 0.15);
+      border: 1px solid rgba(245, 213, 62, 0.4);
+      padding: 1rem 1.25rem; border-radius: 12px;
+      max-width: 580px; margin: 1.5rem auto;
+      font-size: 0.95rem;
+    }
+
+    /* ─── Tweetaligheid ─── */
+    [data-lang]:not(.zichtbaar) { display: none; }
+  </style>
+</head>
+<body>
+
+  <a href="#aanmelden" class="skip-link" data-lang="nl">Direct naar aanmelden</a>
+  <a href="#aanmelden" class="skip-link" data-lang="en">Skip to sign up</a>
+
+  <div class="top">
+    <a href="#" class="logo-text">Mind the Difference</a>
+    <div class="lang" role="group" aria-label="Taal / Language">
+      <button type="button" data-set-lang="nl" class="actief" aria-pressed="true">NL</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ─────── HERO ─────── -->
+    <section class="hero">
+      <div class="sticker" aria-label="Dutch and international students welcome">
+        Dutch &amp; international students welcome
+      </div>
+
+      <img class="hero-foto-strook" src="hero-foto.webp" alt="Een diverse groep lachende studenten overlegt rond een tafel vol post-its, een laptop en designboeken. Op de kleurige muur erachter staan brushstrokes in geel, roze en turquoise." />
+
+      <div class="hero-content-wrap">
+        <img class="poppetje-accent" id="poppetjeHero" alt="" />
+
+        <div class="hero-inhoud">
+        <span class="hero-badge">Masterclass</span>
+
+        <h1>Mind the Difference</h1>
+
+        <p class="hero-tag">
+          Different studies. Different backgrounds.<br />
+          Different perspectives. <strong>One Masterclass.</strong>
+        </p>
+
+        <div class="hero-info">
+          <span data-lang="nl">📅 Woensdag 25 november 2026</span>
+          <span data-lang="en">📅 Wednesday 25 November 2026</span>
+          <span data-lang="nl">📍 The Grey Space in the Middle, Den Haag</span>
+          <span data-lang="en">📍 The Grey Space in the Middle, The Hague</span>
+          <span data-lang="nl">🎟 Gratis</span>
+          <span data-lang="en">🎟 Free</span>
+        </div>
+
+        <p class="hero-notitie" data-lang="nl">Deuren open om 15:30 uur, het programma begint om 16:00 uur en eindigt om 18:30 uur. Daarna is er een borrel.</p>
+        <p class="hero-notitie" data-lang="en">Doors open at 3:30 PM. The programme runs from 4:00 PM to 6:30 PM, with drinks afterwards.</p>
+
+        <a href="#aanmelden" class="cta" data-lang="nl">Meld je aan →</a>
+        <a href="#aanmelden" class="cta" data-lang="en">Sign up →</a>
+      </div>
+      </div>
+    </section>
+
+    <!-- ─────── WAT IS MIND THE DIFFERENCE ─────── -->
+    <section class="over">
+      <img class="poppetje-accent" id="poppetjeOver" alt="" />
+      <div class="wrap wrap-smal over-inhoud">
+        <h2 data-lang="nl">Wat is Mind the Difference?</h2>
+        <h2 data-lang="en">What is Mind the Difference?</h2>
+
+        <div data-lang="nl">
+          <p>Je ontmoet studenten van andere opleidingen, uit andere landen en met andere achtergronden. En mensen die regelmatig merken dat iets niet voor hen gemaakt is, bijvoorbeeld omdat zij een rolstoel gebruiken, slecht zien of horen, of sneller overprikkeld raken.</p>
+          <p>Meestal ligt het niet aan mensen zelf dat ze ergens niet aan mee kunnen doen, maar aan een ontwerp dat bedacht is voor een kleine groep. Dat kan anders, en dat heet <strong>Design for All</strong>: vanaf je eerste idee denk je na over de vraag hoe iedereen er straks iets aan heeft.</p>
+          <p>De cultuursector is ons speelveld en inspiratiebron. Via kunst, persoonlijke verhalen en voorbeelden uit de praktijk kom je op ideeën die je meeneemt naar je eigen vak.</p>
+        </div>
+
+        <div data-lang="en">
+          <p>You'll meet students from other courses, other countries and other backgrounds. And people who regularly find that something wasn't made with them in mind, for example because they use a wheelchair, have low vision or hearing loss, or are more easily overwhelmed.</p>
+          <p>Most of the time it isn't people who fall short, but a design made for a small group. It can be done differently, and that is what <strong>Design for All</strong> means: from your very first idea, you think about how everyone will get something out of it.</p>
+          <p>The cultural sector is our playing field and our source of inspiration. Through art, personal stories and real examples, you pick up ideas you can take back to your own field.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────── WAAR DE MIDDAG OVER GAAT (4 vragen) ─────── -->
+    <section class="vragen">
+      <div class="wrap wrap-smal">
+        <h2 data-lang="nl">Waar de middag over gaat</h2>
+        <h2 data-lang="en">What the afternoon is about</h2>
+
+        <div class="vragen-lijst" data-lang="nl">
+          <p>Wie ontbreekt er aan tafel?</p>
+          <p>Wat als verschil de bron van innovatie is?</p>
+          <p>Wanneer voelde jij je voor het laatst buitengesloten?</p>
+          <p>Wat wordt mogelijk wanneer iedereen kan meedoen?</p>
+        </div>
+        <div class="vragen-lijst" data-lang="en">
+          <p>Who's missing from the table?</p>
+          <p>What if difference is the source of innovation?</p>
+          <p>When did you last feel left out?</p>
+          <p>What becomes possible when everyone can take part?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────── WAT GA JE DOEN ─────── -->
+    <section class="wat">
+      <div class="wrap">
+        <h2 data-lang="nl">Wat ga je doen?</h2>
+        <h2 data-lang="en">What will you do?</h2>
+        <p class="subtitel" data-lang="nl">Geen lange lezingen, maar een afwisselend programma.</p>
+        <p class="subtitel" data-lang="en">No long lectures. Instead, expect a varied and interactive programme.</p>
+
+        <div class="kaarten">
+          <div class="kaart">
+            <span class="kaart-nr">01</span>
+            <h3>Experience</h3>
+            <p data-lang="nl">We beginnen zonder uitleg. Je ervaart het.</p>
+            <p data-lang="en">We start without any explanation. You simply experience it.</p>
+          </div>
+          <div class="kaart">
+            <span class="kaart-nr">02</span>
+            <h3>Discover</h3>
+            <p data-lang="nl">Een interactieve talk over verschil, perspectief en innovatie, door Ronald Ligtenberg. Hij noemt zichzelf trouble seeker: iemand die opzoekt wat niet werkt en er iets beters van maakt.</p>
+            <p data-lang="en">An interactive talk about difference, perspective and innovation, by Ronald Ligtenberg. He calls himself a trouble seeker: someone who goes looking for what does not work and turns it into something better.</p>
+          </div>
+          <div class="kaart">
+            <span class="kaart-nr">03</span>
+            <h3>Mix it up</h3>
+            <p data-lang="nl">Er zijn drie korte themasessies, je kiest er twee. In kleine groepen ga je in gesprek met andere studenten. Elke sessie heeft twee gespreksleiders, waarvan één uit eigen ervaring weet hoe het is als iets niet voor jou gemaakt is.</p>
+            <p data-lang="en">There are three short themed sessions and you choose two. In small groups you talk with other students. Each session has two hosts, one of whom knows from experience what it's like when something wasn't made with you in mind.</p>
+          </div>
+          <div class="kaart">
+            <span class="kaart-nr">04</span>
+            <h3>Meet</h3>
+            <p data-lang="nl">Een drankje, een snack, nieuwe ontmoetingen en de lancering van de Mind the Difference Challenge.</p>
+            <p data-lang="en">A drink, a snack, new faces and the launch of the Mind the Difference Challenge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────── TAAL-SECTIE ─────── -->
+    <section class="taalblok">
+      <div class="wrap wrap-smal">
+        <h2 data-lang="nl">Nederlands of Engels? Allebei</h2>
+        <h2 data-lang="en">Dutch or English? Both</h2>
+
+        <div data-lang="nl">
+          <p>De Masterclass is voor <strong>Nederlandstalige en internationale studenten</strong>.</p>
+          <p>Wordt er Nederlands gesproken, dan lees je mee in het Engels, en andersom. Daar zorgt een <strong>schrijftolk</strong> voor. In de themasessies vatten de begeleiders samen en vertalen ze waar nodig.</p>
+        </div>
+        <div data-lang="en">
+          <p>The Masterclass is for <strong>Dutch-speaking and international students</strong>.</p>
+          <p>When Dutch is spoken, you can follow along in English, and the other way round. A <strong>speech-to-text interpreter</strong> takes care of that. In the themed sessions the hosts summarise and translate where needed.</p>
+        </div>
+
+        <p class="quote" data-lang="nl">Je Engels hoeft dus niet perfect te zijn. <span lang="en">And you don't need to speak Dutch.</span></p>
+        <p class="quote" data-lang="en">So your English doesn't need to be perfect. <span lang="nl">En Nederlands hoef je niet te spreken.</span></p>
+      </div>
+    </section>
+
+    <!-- ─────── CHALLENGE SECTIE ─────── -->
+    <section class="challenge">
+      <img class="poppetje-accent" id="poppetjeChallenge" alt="" />
+      <img class="halve-cirkel-foto" src="challenge-foto.webp" alt="Studenten in gesprek rond een tafel tijdens een eerdere Design for All masterclass, met een bordje 'Maak het voor iedereen' in beeld." />
+      <div class="wrap wrap-smal challenge-inhoud">
+        <span class="badge" data-lang="nl">Aan het eind van de middag</span>
+        <span class="badge" data-lang="en">At the end of the afternoon</span>
+
+        <h2>Mind the Difference Challenge</h2>
+
+        <p class="tagline">Find your difference. Make a difference.</p>
+
+        <div data-lang="nl">
+          <p>Aan het eind van de middag lanceren we de Challenge. <strong>Meedoen mag, hoeft niet.</strong></p>
+
+          <details class="challenge-uitklap">
+            <summary>Lees wat de Challenge inhoudt</summary>
+            <div class="challenge-detail">
+              <p>Kies iets dat niet voor iedereen goed werkt: een app, festival, website, studieomgeving, café, game of product. Of pak een echt vraagstuk van een Haagse organisatie. Bedenk hoe het beter kan, samen met twee of drie studenten die níét hetzelfde studeren, denken of meemaken. Werk het uit in een idee dat je kunt laten zien en uitleggen.</p>
+              <p><strong>Wat levert het je op?</strong> Je leert door te doen, werkt samen met culturele instellingen en ervaringsdeskundigen en bouwt zo aan een netwerk in de stad. Je presenteert je idee begin 2027, datum en plek volgen. Hoe ver je gaat, bepaal je zelf.</p>
+              <p>Goede ideeën kunnen we misschien samen verder brengen, met geld van de gemeente of hulp uit ons netwerk. En wie weet gebruik je het voor een scriptie, paper of stage.</p>
+            </div>
+          </details>
+        </div>
+
+        <div data-lang="en">
+          <p>At the end of the afternoon we launch the Challenge. <strong>Join in if you want to, but there is no obligation.</strong></p>
+
+          <details class="challenge-uitklap">
+            <summary>Read what the Challenge involves</summary>
+            <div class="challenge-detail">
+              <p>Pick something that doesn't work for everyone: an app, a festival, a website, a study space, a café, a game or a product. Or take on a real question from an organisation in The Hague. Work out how it could be better, together with two or three students who don't all study, think or experience things the same way. No lengthy report, just an idea you can show and explain.</p>
+              <p><strong>What's in it for you?</strong> You learn by doing, work with cultural organisations and people with lived experience, and build a network in the city. You present your idea in early 2027, date and venue to follow. How far you take it is up to you.</p>
+              <p>Good ideas we may be able to take further together, with funding from the city council or help from our network. And who knows, you might use it for a thesis, a paper or a placement.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────── TOEGANKELIJKHEID ─────── -->
+    <section class="toegankelijkheid">
+      <div class="wrap wrap-smal">
+        <h2 data-lang="nl">Toegankelijkheid: dit is er geregeld</h2>
+        <h2 data-lang="en">Accessibility: what we've arranged</h2>
+
+        <div data-lang="nl">
+          <p>De ingang van The Grey Space in the Middle is gelijkvloers. Je kunt met een rolstoel overal komen, ook in de zaal en op het toilet. Je kunt tussendoor altijd even weggaan.</p>
+          <p>Heb je iets nodig om erbij te kunnen zijn, bijvoorbeeld een tolk? Laat het ons zo snel mogelijk weten. Wat we zelf kunnen regelen, doen we met liefde. Krijgen we het niet voor elkaar? Dan proberen we samen een oplossing te vinden.</p>
+        </div>
+
+        <div data-lang="en">
+          <p>The entrance of The Grey Space in the Middle is step-free. You can get everywhere in a wheelchair, including the hall and the toilet. You can leave the room at any time.</p>
+          <p>Do you need anything to be able to join us, a sign language interpreter for example? Let us know as soon as you can. Whatever we can arrange ourselves, we will gladly do. And if we can't manage it, we will look for a solution together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────── AANMELDFORMULIER ─────── -->
+    <section class="aanmelden" id="aanmelden">
+      <div class="wrap wrap-smal">
+        <h2 data-lang="nl">Meld je aan</h2>
+        <h2 data-lang="en">Sign up</h2>
+        <p class="subtitel" data-lang="nl">Gratis toegang. Vul je gegevens in en je krijgt binnenkort een bevestiging.</p>
+        <p class="subtitel" data-lang="en">Free entry. Fill in your details and you'll get a confirmation soon.</p>
+
+        <form id="formulier" class="formulier" novalidate>
+          <div class="rij">
+            <div class="veld">
+              <label for="voornaam" data-lang="nl">Voornaam *</label>
+              <label for="voornaam" data-lang="en">First name *</label>
+              <input type="text" id="voornaam" name="voornaam" required autocomplete="given-name" />
+            </div>
+            <div class="veld">
+              <label for="achternaam" data-lang="nl">Achternaam *</label>
+              <label for="achternaam" data-lang="en">Last name *</label>
+              <input type="text" id="achternaam" name="achternaam" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="rij">
+            <div class="veld">
+              <label for="leeftijd" data-lang="nl">Leeftijd *</label>
+              <label for="leeftijd" data-lang="en">Age *</label>
+              <input type="number" id="leeftijd" name="leeftijd" required min="16" max="120" />
+            </div>
+            <div class="veld">
+              <label for="email" data-lang="nl">E-mailadres *</label>
+              <label for="email" data-lang="en">Email *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="veld">
+            <label for="onderwijs" data-lang="nl">Onderwijsinstelling *</label>
+            <label for="onderwijs" data-lang="en">Educational institution *</label>
+            <span class="hulp" data-lang="nl">Bijvoorbeeld: Koninklijke Academie van Beeldende Kunsten, Haagse Hogeschool, TU Delft.</span>
+            <span class="hulp" data-lang="en">For example: Royal Academy of Art, The Hague University of Applied Sciences, TU Delft.</span>
+            <input type="text" id="onderwijs" name="onderwijs" required autocomplete="organization" />
+          </div>
+
+          <div class="veld">
+            <label for="studie" data-lang="nl">Studie / studierichting *</label>
+            <label for="studie" data-lang="en">Study / field *</label>
+            <input type="text" id="studie" name="studie" required autocomplete="off" />
+          </div>
+
+          <fieldset class="veld" style="border: none; padding: 0; margin: 0 0 1.25rem;">
+            <legend style="font-weight: 700; margin-bottom: 0.75rem;">
+              <span data-lang="nl">Wil je meedoen aan de Mind the Difference Challenge?</span>
+              <span data-lang="en">Do you want to join the Mind the Difference Challenge?</span>
+            </legend>
+            <span class="hulp" style="margin-bottom: 0.75rem;" data-lang="nl">Meedoen is helemaal vrijwillig. Je kunt gewoon de Masterclass bijwonen voor de ervaring, inspiratie en ontmoetingen.</span>
+            <span class="hulp" style="margin-bottom: 0.75rem;" data-lang="en">Taking part is completely optional. You can simply join the Masterclass for the experience, inspiration and new connections.</span>
+
+            <div class="radio-groep">
+              <label class="radio-item">
+                <input type="radio" name="challenge" value="ja" required />
+                <span class="radio-label" data-lang="nl">Ja, daar doe ik graag aan mee!</span>
+                <span class="radio-label" data-lang="en">Yes, count me in!</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="challenge" value="misschien" />
+                <span class="radio-label" data-lang="nl">Dat weet ik nog niet, ik bepaal het tijdens de Masterclass.</span>
+                <span class="radio-label" data-lang="en">Not sure yet, I'll decide during the Masterclass.</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="challenge" value="nee" />
+                <span class="radio-label" data-lang="nl">Nee, alleen deelname aan de Masterclass is voor mij voldoende.</span>
+                <span class="radio-label" data-lang="en">No, just the Masterclass is enough for me.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="submit-knop" id="verstuur">
+            <span data-lang="nl">Aanmelden</span>
+            <span data-lang="en">Sign up</span>
+          </button>
+
+          <div id="melding" class="melding" style="display:none;"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="payoff">Different studies. Different backgrounds. Different perspectives. One Masterclass.</p>
+
+    <p data-lang="nl">Masterclass <strong>Mind the Difference</strong>, 25 november 2026</p>
+    <p data-lang="en">Masterclass <strong>Mind the Difference</strong>, 25 November 2026</p>
+
+    <div class="korting">
+      <p data-lang="nl" style="margin: 0;">🎟️ <strong>Als student krijg je korting op tickets voor het No Limits Festival</strong> op 27 en 28 november 2026.</p>
+      <p data-lang="en" style="margin: 0;">🎟️ <strong>As a student, you'll receive a discount on tickets for the No Limits Festival</strong> on 27 and 28 November 2026.</p>
+    </div>
+
+    <p data-lang="nl">Mind the Difference is een initiatief van <strong>InCultuur</strong>, mogelijk gemaakt door de <strong>gemeente Den Haag</strong> en in samenwerking met het <strong>No Limits Festival</strong>.</p>
+    <p data-lang="en">Mind the Difference is an initiative by <strong>InCultuur</strong>, made possible by the <strong>City of The Hague</strong> and in collaboration with the <strong>No Limits Festival</strong>.</p>
+
+    <p style="margin-top: 1.5rem; opacity: 0.7; font-size: 0.85rem;">
+      <span data-lang="nl">Vragen? Mail naar </span>
+      <span data-lang="en">Questions? Email </span>
+      <a href="mailto:info@incultuur.nl">info@incultuur.nl</a>
+    </p>
+  </footer>
+
+  <script>
+    // ─── Poppetjes ───
+    const poppetjes = [
+      { bestand: 'poppetje-1.webp',  alt: { nl: 'Roze figuur die naar rechts wijst',           en: 'Pink figure pointing to the right' } },
+      { bestand: 'poppetje-2.webp',  alt: { nl: 'Turquoise figuur die springt met een hart',   en: 'Turquoise figure leaping with a heart' } },
+      { bestand: 'poppetje-3.webp',  alt: { nl: 'Lichtgroen figuur dat ligt te rusten',        en: 'Light green figure lying down' } },
+      { bestand: 'poppetje-4.webp',  alt: { nl: 'Groen figuur in yoga-lotushouding',           en: 'Green figure in yoga lotus pose' } },
+      { bestand: 'poppetje-5.webp',  alt: { nl: 'Lichtroze figuur dat rent',                   en: 'Light pink figure running' } },
+      { bestand: 'poppetje-6.webp',  alt: { nl: 'Blauw figuur dat een handstand doet',         en: 'Blue figure doing a handstand' } },
+      { bestand: 'poppetje-7.webp',  alt: { nl: 'Groen figuur dat mediteert met een lampidee', en: 'Green figure meditating with a lightbulb idea' } },
+      { bestand: 'poppetje-8.webp',  alt: { nl: 'Lichtgroen figuur dat zwaait met een ster',   en: 'Light green figure waving with a star' } },
+      { bestand: 'poppetje-9.webp',  alt: { nl: 'Limoenkleurig figuur dat naar een ster reikt', en: 'Lime green figure reaching for a star' } },
+      { bestand: 'poppetje-10.webp', alt: { nl: 'Roze figuur staat rechtop',                   en: 'Pink figure standing tall' } },
+      { bestand: 'poppetje-11.webp', alt: { nl: 'Rozerood figuur met puntig hoofd',            en: 'Pink-red figure with pointed head' } },
+      { bestand: 'poppetje-12.webp', alt: { nl: 'Oranje figuur dat groet',                     en: 'Orange figure waving hello' } },
+      { bestand: 'poppetje-13.webp', alt: { nl: 'Groen figuur dat armen omhoog gooit',         en: 'Green figure throwing arms up' } },
+      { bestand: 'poppetje-14.webp', alt: { nl: 'Blauw figuur dat voorover buigt',             en: 'Blue figure bending forward' } },
+      { bestand: 'poppetje-15.webp', alt: { nl: 'Geel figuur dat neerhangt',                   en: 'Yellow figure hanging down' } },
+      { bestand: 'poppetje-16.webp', alt: { nl: 'Lichtblauw figuur met een ster boven het hoofd', en: 'Light blue figure with a star above the head' } },
+    ];
+
+    const pad = 'poppetjes/';
+
+    function renderPoppetje(index, extraAttrs = '') {
+      const p = poppetjes[index - 1];
+      const taal = document.documentElement.lang || 'nl';
+      return `<img src="${pad}${p.bestand}" alt="${p.alt[taal]}" ${extraAttrs} />`;
+    }
+
+    function zetAccent(id, index) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const p = poppetjes[index - 1];
+      const taal = document.documentElement.lang || 'nl';
+      el.src = pad + p.bestand;
+      el.alt = p.alt[taal];
+    }
+
+    function renderHero() {
+      // Losse poppetje-accenten verdeeld over de pagina
+      zetAccent('poppetjeHero', 13);       // groen armen omhoog (hero, groot rechtsonder)
+      zetAccent('poppetjeOver', 7);        // groen mediteert met lampidee (over, geel)
+      zetAccent('poppetjeChallenge', 2);   // turquoise springt met hart (challenge, koraal)
+      // (voorwie sectie is weg) zetAccent() faalt stil op onbekende id, geen crash
+    }
+
+    // ─── Taalschakelaar ───
+    function zetTaal(taal) {
+      document.documentElement.lang = taal;
+      document.querySelectorAll('[data-lang]').forEach((el) => {
+        el.classList.toggle('zichtbaar', el.dataset.lang === taal);
+      });
+      document.querySelectorAll('.lang button').forEach((b) => {
+        const actief = b.dataset.setLang === taal;
+        b.classList.toggle('actief', actief);
+        b.setAttribute('aria-pressed', actief);
+      });
+      localStorage.setItem('mtd-taal', taal);
+      renderHero();
+    }
+    document.querySelectorAll('.lang button').forEach((b) => {
+      b.addEventListener('click', () => zetTaal(b.dataset.setLang));
+    });
+    const opgeslagen = localStorage.getItem('mtd-taal');
+    const browserTaal = (navigator.language || 'nl').startsWith('en') ? 'en' : 'nl';
+    zetTaal(opgeslagen || browserTaal);
+
+    // ─── Formulier ───
+    const WEBHOOK_URL = 'https://script.google.com/a/macros/astrolads.com/s/AKfycbz29iHlyoiZgmslBu70nAYTwZhXJAnJNHacrPZud2A2SMsqANCnNUt2ziCwPoqKWoar/exec';
+
+    const formulier = document.getElementById('formulier');
+    const knop = document.getElementById('verstuur');
+    const melding = document.getElementById('melding');
+
+    formulier.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      melding.style.display = 'none';
+
+      if (!formulier.checkValidity()) {
+        formulier.reportValidity();
+        return;
+      }
+
+      const taal = document.documentElement.lang;
+      const data = new FormData(formulier);
+      const payload = {
+        voornaam: data.get('voornaam'),
+        achternaam: data.get('achternaam'),
+        leeftijd: data.get('leeftijd'),
+        email: data.get('email'),
+        onderwijs: data.get('onderwijs'),
+        studie: data.get('studie'),
+        challenge: data.get('challenge'),
+        tijdstip: new Date().toISOString(),
+        taal,
+      };
+
+      knop.disabled = true;
+      const origContent = knop.innerHTML;
+      knop.textContent = taal === 'nl' ? 'Bezig...' : 'Sending...';
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        melding.className = 'melding succes';
+        melding.textContent = taal === 'nl'
+          ? '✓ Bedankt voor je aanmelding! Je hoort snel meer van ons.'
+          : '✓ Thanks for signing up! You\'ll hear from us soon.';
+        melding.style.display = 'block';
+        formulier.reset();
+        melding.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        melding.className = 'melding fout';
+        melding.textContent = taal === 'nl'
+          ? 'Er ging iets mis. Probeer het nog eens of mail info@incultuur.nl.'
+          : 'Something went wrong. Please try again or email info@incultuur.nl.';
+        melding.style.display = 'block';
+      } finally {
+        knop.disabled = false;
+        knop.innerHTML = origContent;
+      }
+    });
+  </script>
+
+</body>
+</html>
