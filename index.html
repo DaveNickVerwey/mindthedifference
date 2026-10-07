@@ -262,8 +262,11 @@
     section.hero, section.over, section.challenge, section.voorwie {
       position: relative; overflow: hidden;
     }
-        @media (max-width: 720px) {
-      .poppetje-accent { display: none; }
+    @media (max-width: 720px) {
+      .hero .poppetje-accent { width: 180px; right: -20px; bottom: -20px; }
+      .over .poppetje-accent { width: 180px; left: -25px; bottom: -30px; }
+      .challenge .poppetje-accent { width: 100px; left: 1rem; top: 1rem; }
+      .voorwie .poppetje-accent { width: 120px; right: -15px; top: 1rem; }
     }
 
     /* ─── Over het event ─── */
@@ -796,17 +799,18 @@
             </div>
           </div>
 
-          <div class="rij">
-            <div class="veld">
-              <label for="leeftijd" data-lang="nl">Leeftijd *</label>
-              <label for="leeftijd" data-lang="en">Age *</label>
-              <input type="number" id="leeftijd" name="leeftijd" required min="16" max="120" />
-            </div>
-            <div class="veld">
-              <label for="email" data-lang="nl">E-mailadres *</label>
-              <label for="email" data-lang="en">Email *</label>
-              <input type="email" id="email" name="email" required autocomplete="email" />
-            </div>
+          <div class="veld">
+            <label for="email" data-lang="nl">E-mailadres *</label>
+            <label for="email" data-lang="en">Email *</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+
+          <div class="veld">
+            <label for="telefoon" data-lang="nl">Telefoonnummer</label>
+            <label for="telefoon" data-lang="en">Phone number</label>
+            <span class="hulp" data-lang="nl">We voegen je graag toe aan een tijdelijke WhatsApp Community. Hierin delen we belangrijke informatie over de Masterclass. Krijg je de informatie liever per mail? Laat dit veld dan leeg.</span>
+            <span class="hulp" data-lang="en">We'd like to add you to a temporary WhatsApp Community where we'll share important information about the Masterclass. Prefer to get this info by email instead? Just leave this field blank.</span>
+            <input type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="+31 6 ..." />
           </div>
 
           <div class="veld">
@@ -849,6 +853,20 @@
               </label>
             </div>
           </fieldset>
+
+          <div class="veld">
+            <label for="toegankelijkheid" data-lang="nl">Heb je iets nodig om mee te kunnen doen?</label>
+            <label for="toegankelijkheid" data-lang="en">Do you need anything to be able to join?</label>
+            <span class="hulp" data-lang="nl">Bijvoorbeeld een tolk, een rustige plek of iets anders. Laat het ons weten, dan kijken we wat mogelijk is.</span>
+            <span class="hulp" data-lang="en">For example a sign language interpreter, a quiet space or anything else. Let us know and we'll see what's possible.</span>
+            <textarea id="toegankelijkheid" name="toegankelijkheid" rows="3"></textarea>
+          </div>
+
+          <div class="veld">
+            <label for="opmerking" data-lang="nl">Opmerking of vraag</label>
+            <label for="opmerking" data-lang="en">Comment or question</label>
+            <textarea id="opmerking" name="opmerking" rows="3"></textarea>
+          </div>
 
           <button type="submit" class="submit-knop" id="verstuur">
             <span data-lang="nl">Aanmelden</span>
@@ -951,7 +969,7 @@
     zetTaal(opgeslagen || browserTaal);
 
     // ─── Formulier ───
-    const WEBHOOK_URL = 'https://script.google.com/a/macros/astrolads.com/s/AKfycbz29iHlyoiZgmslBu70nAYTwZhXJAnJNHacrPZud2A2SMsqANCnNUt2ziCwPoqKWoar/exec';
+    const WEBHOOK_URL = 'JOUW_APPS_SCRIPT_URL_HIER';
 
     const formulier = document.getElementById('formulier');
     const knop = document.getElementById('verstuur');
@@ -971,11 +989,13 @@
       const payload = {
         voornaam: data.get('voornaam'),
         achternaam: data.get('achternaam'),
-        leeftijd: data.get('leeftijd'),
         email: data.get('email'),
+        telefoon: data.get('telefoon') || '',
         onderwijs: data.get('onderwijs'),
         studie: data.get('studie'),
         challenge: data.get('challenge'),
+        toegankelijkheid: data.get('toegankelijkheid') || '',
+        opmerking: data.get('opmerking') || '',
         tijdstip: new Date().toISOString(),
         taal,
       };
