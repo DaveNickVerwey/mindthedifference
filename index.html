@@ -191,6 +191,41 @@
       max-width: 540px; margin: 0 auto 1.75rem;
       line-height: 1.55;
     }
+    .hero-formulier {
+      background: white; border: 3px solid var(--tekst);
+      border-radius: 20px; padding: 1.5rem;
+      box-shadow: 6px 6px 0 var(--tekst);
+      max-width: 480px; margin: 1.5rem auto 0;
+      text-align: left;
+    }
+    .hero-formulier .veld { margin-bottom: 0.9rem; }
+    .hero-formulier .veld:last-of-type { margin-bottom: 1rem; }
+    .hero-formulier label { display: block; font-weight: 700; margin-bottom: 0.3rem; font-size: 0.9rem; }
+    .hero-formulier .hulp { display: block; font-size: 0.78rem; color: var(--tekst-zacht); margin-bottom: 0.4rem; font-weight: 400; line-height: 1.45; }
+    .hero-formulier input {
+      width: 100%; padding: 0.65rem 0.85rem;
+      border: 2px solid var(--tekst); border-radius: 8px;
+      font-family: inherit; font-size: 0.95rem; background: white;
+    }
+    .hero-formulier .submit-knop {
+      width: 100%; margin-top: 0.5rem;
+      background: var(--koraal); color: white;
+      padding: 0.9rem 1.5rem; border: 3px solid var(--tekst);
+      border-radius: 999px; font-weight: 900; font-size: 1rem;
+      cursor: pointer; font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      box-shadow: 5px 5px 0 var(--tekst);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .hero-formulier .submit-knop:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--tekst); }
+    .hero-formulier .submit-knop:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--tekst); }
+    .hero-formulier .submit-knop:disabled { background: #999; cursor: not-allowed; }
+    .hero-formulier .melding {
+      margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px;
+      font-weight: 500; text-align: center; font-size: 0.9rem;
+    }
+    .hero-formulier .melding.succes { background: var(--groen); color: var(--tekst); font-weight: 700; }
+    .hero-formulier .melding.fout { background: #ffe0e0; color: #a00020; }
     .cta {
       display: inline-block;
       background: var(--koraal); color: white;
@@ -611,8 +646,34 @@
         <p class="hero-notitie" data-lang="nl">Deuren open om 15:30 uur, het programma begint om 16:00 uur en eindigt om 18:30 uur. Daarna is er een borrel.</p>
         <p class="hero-notitie" data-lang="en">Doors open at 3:30 PM. The programme runs from 4:00 PM to 6:30 PM, with drinks afterwards.</p>
 
-        <a href="#aanmelden" class="cta" data-lang="nl">Meld je aan →</a>
-        <a href="#aanmelden" class="cta" data-lang="en">Sign up →</a>
+        <form id="formulier" class="hero-formulier" novalidate>
+          <div class="veld">
+            <label for="naam" data-lang="nl">Naam *</label>
+            <label for="naam" data-lang="en">Name *</label>
+            <input type="text" id="naam" name="naam" required autocomplete="name" />
+          </div>
+
+          <div class="veld">
+            <label for="email" data-lang="nl">E-mailadres *</label>
+            <label for="email" data-lang="en">Email *</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+
+          <div class="veld">
+            <label for="telefoon" data-lang="nl">Telefoonnummer</label>
+            <label for="telefoon" data-lang="en">Phone number</label>
+            <span class="hulp" data-lang="nl">Voor onze tijdelijke WhatsApp Community met info over de Masterclass. Liever per mail? Laat dit veld leeg.</span>
+            <span class="hulp" data-lang="en">For our temporary WhatsApp Community with Masterclass info. Prefer email? Just leave this blank.</span>
+            <input type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="+31 6 ..." />
+          </div>
+
+          <button type="submit" class="submit-knop" id="verstuur">
+            <span data-lang="nl">Aanmelden</span>
+            <span data-lang="en">Sign up</span>
+          </button>
+
+          <div id="melding" class="melding" style="display:none;"></div>
+        </form>
       </div>
       </div>
     </section>
@@ -775,105 +836,7 @@
     </section>
 
     <!-- ─────── AANMELDFORMULIER ─────── -->
-    <section class="aanmelden" id="aanmelden">
-      <div class="wrap wrap-smal">
-        <h2 data-lang="nl">Meld je aan</h2>
-        <h2 data-lang="en">Sign up</h2>
-        <p class="subtitel" data-lang="nl">Gratis toegang. Vul je gegevens in en je krijgt binnenkort een bevestiging.</p>
-        <p class="subtitel" data-lang="en">Free entry. Fill in your details and you'll get a confirmation soon.</p>
 
-        <form id="formulier" class="formulier" novalidate>
-          <div class="rij">
-            <div class="veld">
-              <label for="voornaam" data-lang="nl">Voornaam *</label>
-              <label for="voornaam" data-lang="en">First name *</label>
-              <input type="text" id="voornaam" name="voornaam" required autocomplete="given-name" />
-            </div>
-            <div class="veld">
-              <label for="achternaam" data-lang="nl">Achternaam *</label>
-              <label for="achternaam" data-lang="en">Last name *</label>
-              <input type="text" id="achternaam" name="achternaam" required autocomplete="family-name" />
-            </div>
-          </div>
-
-          <div class="veld">
-            <label for="email" data-lang="nl">E-mailadres *</label>
-            <label for="email" data-lang="en">Email *</label>
-            <input type="email" id="email" name="email" required autocomplete="email" />
-          </div>
-
-          <div class="veld">
-            <label for="telefoon" data-lang="nl">Telefoonnummer</label>
-            <label for="telefoon" data-lang="en">Phone number</label>
-            <span class="hulp" data-lang="nl">We voegen je graag toe aan een tijdelijke WhatsApp Community. Hierin delen we belangrijke informatie over de Masterclass. Krijg je de informatie liever per mail? Laat dit veld dan leeg.</span>
-            <span class="hulp" data-lang="en">We'd like to add you to a temporary WhatsApp Community where we'll share important information about the Masterclass. Prefer to get this info by email instead? Just leave this field blank.</span>
-            <input type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="+31 6 ..." />
-          </div>
-
-          <div class="veld">
-            <label for="onderwijs" data-lang="nl">Onderwijsinstelling *</label>
-            <label for="onderwijs" data-lang="en">Educational institution *</label>
-            <span class="hulp" data-lang="nl">Bijvoorbeeld: Koninklijke Academie van Beeldende Kunsten, Haagse Hogeschool, TU Delft.</span>
-            <span class="hulp" data-lang="en">For example: Royal Academy of Art, The Hague University of Applied Sciences, TU Delft.</span>
-            <input type="text" id="onderwijs" name="onderwijs" required autocomplete="organization" />
-          </div>
-
-          <div class="veld">
-            <label for="studie" data-lang="nl">Studie / studierichting *</label>
-            <label for="studie" data-lang="en">Study / field *</label>
-            <input type="text" id="studie" name="studie" required autocomplete="off" />
-          </div>
-
-          <fieldset class="veld" style="border: none; padding: 0; margin: 0 0 1.25rem;">
-            <legend style="font-weight: 700; margin-bottom: 0.75rem;">
-              <span data-lang="nl">Wil je meedoen aan de Mind the Difference Challenge?</span>
-              <span data-lang="en">Do you want to join the Mind the Difference Challenge?</span>
-            </legend>
-            <span class="hulp" style="margin-bottom: 0.75rem;" data-lang="nl">Meedoen is helemaal vrijwillig. Je kunt gewoon de Masterclass bijwonen voor de ervaring, inspiratie en ontmoetingen.</span>
-            <span class="hulp" style="margin-bottom: 0.75rem;" data-lang="en">Taking part is completely optional. You can simply join the Masterclass for the experience, inspiration and new connections.</span>
-
-            <div class="radio-groep">
-              <label class="radio-item">
-                <input type="radio" name="challenge" value="ja" required />
-                <span class="radio-label" data-lang="nl">Ja, daar doe ik graag aan mee!</span>
-                <span class="radio-label" data-lang="en">Yes, count me in!</span>
-              </label>
-              <label class="radio-item">
-                <input type="radio" name="challenge" value="misschien" />
-                <span class="radio-label" data-lang="nl">Dat weet ik nog niet, ik bepaal het tijdens de Masterclass.</span>
-                <span class="radio-label" data-lang="en">Not sure yet, I'll decide during the Masterclass.</span>
-              </label>
-              <label class="radio-item">
-                <input type="radio" name="challenge" value="nee" />
-                <span class="radio-label" data-lang="nl">Nee, alleen deelname aan de Masterclass is voor mij voldoende.</span>
-                <span class="radio-label" data-lang="en">No, just the Masterclass is enough for me.</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div class="veld">
-            <label for="toegankelijkheid" data-lang="nl">Heb je iets nodig om mee te kunnen doen?</label>
-            <label for="toegankelijkheid" data-lang="en">Do you need anything to be able to join?</label>
-            <span class="hulp" data-lang="nl">Bijvoorbeeld een tolk, een rustige plek of iets anders. Laat het ons weten, dan kijken we wat mogelijk is.</span>
-            <span class="hulp" data-lang="en">For example a sign language interpreter, a quiet space or anything else. Let us know and we'll see what's possible.</span>
-            <textarea id="toegankelijkheid" name="toegankelijkheid" rows="3"></textarea>
-          </div>
-
-          <div class="veld">
-            <label for="opmerking" data-lang="nl">Opmerking of vraag</label>
-            <label for="opmerking" data-lang="en">Comment or question</label>
-            <textarea id="opmerking" name="opmerking" rows="3"></textarea>
-          </div>
-
-          <button type="submit" class="submit-knop" id="verstuur">
-            <span data-lang="nl">Aanmelden</span>
-            <span data-lang="en">Sign up</span>
-          </button>
-
-          <div id="melding" class="melding" style="display:none;"></div>
-        </form>
-      </div>
-    </section>
 
   </main>
 
@@ -894,7 +857,7 @@
     <p style="margin-top: 1.5rem; opacity: 0.7; font-size: 0.85rem;">
       <span data-lang="nl">Vragen? Mail naar </span>
       <span data-lang="en">Questions? Email </span>
-      <a href="mailto:info@incultuur.nl">info@incultuur.nl</a>
+      <a href="mailto:contact@incultuur.nl">contact@incultuur.nl</a>
     </p>
   </footer>
 
@@ -983,16 +946,22 @@
 
       const taal = document.documentElement.lang;
       const data = new FormData(formulier);
+      // Naam splitsen in voornaam + achternaam (eerste woord = voornaam, rest = achternaam)
+      const volledigeNaam = (data.get('naam') || '').trim();
+      const naamDelen = volledigeNaam.split(/\s+/);
+      const voornaam = naamDelen[0] || '';
+      const achternaam = naamDelen.slice(1).join(' ') || '';
+
       const payload = {
-        voornaam: data.get('voornaam'),
-        achternaam: data.get('achternaam'),
+        voornaam: voornaam,
+        achternaam: achternaam,
         email: data.get('email'),
         telefoon: data.get('telefoon') || '',
-        onderwijs: data.get('onderwijs'),
-        studie: data.get('studie'),
-        challenge: data.get('challenge'),
-        toegankelijkheid: data.get('toegankelijkheid') || '',
-        opmerking: data.get('opmerking') || '',
+        onderwijs: '',
+        studie: '',
+        challenge: '',
+        toegankelijkheid: '',
+        opmerking: '',
         tijdstip: new Date().toISOString(),
         taal,
       };
