@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Mind the Difference Challenge</title>
+  <meta name="description" content="Doe mee aan de Mind the Difference Challenge. Werk een eigen idee uit en pitch het op de Showcase in maart 2027." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/akzidenz-grotesk-black.woff2" as="font" type="font/woff2" crossorigin />
+
+  <style>
+    @font-face {
+      font-family: 'Akzidenz-Grotesk';
+      src: url('fonts/akzidenz-grotesk-black.woff2') format('woff2');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    body {
+      margin: 0;
+      font-family: 'Jost', 'Trebuchet MS', system-ui, sans-serif;
+      color: #1a1a1a;
+      background: #fefdf9;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      --koraal: #E93E68;
+      --geel: #F5D53E;
+      --cyaan: #7DD3E8;
+      --groen: #A8CE4C;
+      --roze: #F49BBE;
+      --oranje: #F5A73E;
+      --lichtroze: #F6C7D9;
+      --teal: #3E9AAB;
+      --paars: #7B5FC9;
+      --tekst: #1a1a1a;
+      --tekst-zacht: #4a4a4a;
+      --achtergrond: #fefdf9;
+      /* WCAG AA conforme donkere varianten (voor tekst/badges op lichte achtergrond) */
+      --koraal-dark: #B51E42;
+      --oranje-dark: #8E4B14;
+      --teal-dark: #1A5A6B;
+      --paars-dark: #4A2E8E;
+      --koraal-cta: #CE2E57;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 900; line-height: 1.1; margin: 0 0 0.5em;
+      text-transform: uppercase; letter-spacing: 0.01em;
+    }
+    h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); color: var(--koraal-dark); margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.4rem, 2.8vw, 2rem); margin-top: 2.5rem; }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); }
+    p { margin: 0 0 1em; }
+
+    /* Oranje links (eis uit briefing: zichtbaar waar ze heen gaan) */
+    a { color: var(--oranje-dark); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+    a:hover { color: #6B3A0D; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--paars); outline-offset: 3px; border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem;
+      background: var(--paars); color: white;
+      padding: 0.75rem 1.25rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; z-index: 1000;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .top {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(254,253,249,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .logo-text {
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: 1rem; color: var(--tekst);
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.02em;
+    }
+    .lang { display: flex; background: white; border: 2px solid var(--tekst); border-radius: 999px; overflow: hidden; }
+    .lang a {
+      padding: 0.5rem 1.1rem;
+      font-family: inherit; font-weight: 700; font-size: 0.9rem;
+      color: var(--tekst); text-decoration: none;
+    }
+    .lang a.actief { background: var(--tekst); color: white; }
+
+    main { padding: 3rem 1.5rem 5rem; }
+    .wrap { max-width: 740px; margin: 0 auto; }
+
+    .intro-regel {
+      display: inline-block;
+      background: var(--geel); color: var(--tekst);
+      padding: 0.55rem 1rem; border-radius: 10px;
+      border: 2px solid var(--tekst);
+      box-shadow: 3px 3px 0 var(--tekst);
+      margin-bottom: 1.5rem;
+      font-weight: 500; font-size: 0.95rem;
+    }
+
+    .lead {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 500;
+      margin-bottom: 2rem;
+      color: var(--tekst);
+    }
+
+    section.inhoud { margin-top: 2.5rem; }
+
+    /* Lijsten */
+    ul.benefits, ul.startpunt {
+      list-style: none; padding: 0; margin: 0 0 1.5rem;
+    }
+    ul.benefits li, ul.startpunt li {
+      padding-left: 2rem; position: relative; margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+    ul.benefits li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--koraal-dark);
+      font-weight: 900; font-size: 1.2rem; line-height: 1.6;
+    }
+    ul.startpunt li::before {
+      content: '→'; position: absolute; left: 0; color: var(--paars-dark);
+      font-weight: 900; font-size: 1.1rem; line-height: 1.6;
+    }
+
+    /* 4 vragen als genummerde lijst */
+    ol.vragen {
+      list-style: none; padding: 0; margin: 2rem 0;
+      counter-reset: vraag;
+    }
+    ol.vragen li {
+      counter-increment: vraag;
+      background: white;
+      border: 3px solid var(--tekst);
+      border-radius: 16px;
+      padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      box-shadow: 5px 5px 0 var(--tekst);
+    }
+    ol.vragen li::before {
+      content: "0" counter(vraag);
+      position: absolute; left: 1rem; top: 1.25rem;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: 1.3rem;
+      background: var(--koraal-dark); color: white;
+      padding: 0.3rem 0.5rem; border-radius: 6px;
+      line-height: 1;
+    }
+    ol.vragen li:nth-child(2)::before { background: var(--paars-dark); }
+    ol.vragen li:nth-child(3)::before { background: var(--teal-dark); }
+    ol.vragen li:nth-child(4)::before { background: var(--oranje-dark); }
+    ol.vragen h3 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    }
+    ol.vragen p { margin: 0; color: var(--tekst-zacht); line-height: 1.6; }
+
+    /* Save the dates */
+    ul.dates {
+      list-style: none; padding: 0; margin: 1.5rem 0;
+    }
+    ul.dates li {
+      padding: 1rem 1.25rem;
+      background: white;
+      border: 2px solid var(--tekst);
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+    ul.dates strong {
+      display: block;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      font-weight: 900; font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      color: var(--koraal-dark);
+    }
+
+    /* Toegankelijkheid blok (gewoon zichtbaar, geen uitklap) */
+    .toegankelijkheid-blok {
+      background: var(--geel);
+      border: 3px solid var(--tekst);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+    .toegankelijkheid-blok h2 { margin-top: 0; }
+    .toegankelijkheid-blok a { color: var(--oranje-dark); }
+    .toegankelijkheid-blok a:hover { color: #6B3A0D; }
+
+    /* Finale CTA */
+    .finale {
+      background: var(--koraal-cta); color: white;
+      border: 3px solid var(--tekst);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+      box-shadow: 8px 8px 0 var(--tekst);
+    }
+    .finale h2 { color: white; margin-top: 0; }
+    .finale p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .finale .cta {
+      display: inline-block;
+      background: var(--geel); color: var(--tekst);
+      padding: 1rem 2.25rem;
+      border-radius: 999px;
+      text-decoration: none; font-weight: 900; font-size: 1.1rem;
+      border: 3px solid var(--tekst);
+      box-shadow: 5px 5px 0 var(--tekst);
+      transition: transform 0.15s, box-shadow 0.15s;
+      font-family: 'Akzidenz-Grotesk', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .finale .cta:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--tekst); }
+    .finale .cta:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--tekst); }
+
+    /* Footer */
+    footer {
+      background: var(--tekst); color: white;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    footer p { margin: 0.5rem 0; }
+    footer a { color: var(--geel); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Direct naar de inhoud</a>
+
+  <div class="top">
+    <a href="/" class="logo-text">Mind the Difference</a>
+    <div class="lang" role="group" aria-label="Taal / Language">
+      <a href="/challenge" class="actief" aria-current="page">NL</a>
+      <a href="/challenge-en" lang="en">EN</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="wrap">
+
+      <h1>Mind the Difference Challenge</h1>
+
+      <p class="intro-regel" lang="en"><strong>For Dutch and international students.</strong> <a href="/challenge-en" lang="en">Read this page in English (English version of this page)</a>.</p>
+
+      <p class="lead">Wat als jij iets kunt veranderen waar nu niet iedereen aan mee kan doen? In de Challenge werk je een eigen idee uit, alleen of met een klein team. In maart 2027 pitch je het op de Mind the Difference Showcase. Misschien wordt jouw idee daarna werkelijkheid!</p>
+
+      <section class="inhoud">
+        <h2 lang="en">What's in it for you?</h2>
+        <ul class="benefits">
+          <li>Ervaring met een vraag uit de praktijk.</li>
+          <li>Nieuwe mensen om je heen: studenten en professionals van buiten je eigen vakgebied.</li>
+          <li>Contact met organisaties in de culturele sector.</li>
+          <li>Je eigen pitch op de Showcase.</li>
+          <li>Een bewijs van deelname, voor je cv of LinkedIn.</li>
+        </ul>
+      </section>
+
+      <section class="inhoud">
+        <h2>Jouw Challenge in vier vragen</h2>
+        <p>Je werkt je idee uit met vier vragen. In je inzending beantwoord je dezelfde vragen.</p>
+
+        <ol class="vragen">
+          <li>
+            <h3 lang="en">What's the problem?</h3>
+            <p>Kies één drempel uit je eigen vakgebied, bijvoorbeeld in een les, een product, een plek of een regel. Wie kan er nu niet aan meedoen, en wat houdt hen tegen?</p>
+          </li>
+          <li>
+            <h3 lang="en">Who do you need to involve?</h3>
+            <p>Praat met mensen die de drempel zelf tegenkomen, bijvoorbeeld medestudenten of mensen uit je netwerk of je buurt. Wat maken zij mee? En wat helpt hen? Bedenk niet vóór iemand wat die nodig heeft, maar ontdek het samen.</p>
+          </li>
+          <li>
+            <h3 lang="en">What's your idea?</h3>
+            <p>Werk samen een idee uit dat écht verschil kan maken. Hoe zou je het kunnen uitproberen? Het hoeft nog niet perfect te zijn.</p>
+          </li>
+          <li>
+            <h3 lang="en">What's different now?</h3>
+            <p>Vertel wat je onderweg ontdekte. Wat verraste je? En wat ga je voortaan anders doen?</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="inhoud">
+        <h2>Jouw startpunt</h2>
+        <p>Je kiest:</p>
+        <ul class="startpunt">
+          <li>Iets uit je eigen vakgebied waar nu niet iedereen aan mee kan doen. Was je bij de masterclass? Dan kan je kaartje van 25 november je helpen.</li>
+          <li>Of de casus vanuit InCultuur: hoe zorgen we voor meer ontmoeting tussen bezoekers met en zonder beperking? Die casus kun je koppelen aan No Limits Festival, Holland Dance Festival of The Grey Space in the Middle.</li>
+        </ul>
+      </section>
+
+      <section class="inhoud">
+        <h2>Met een team of alleen</h2>
+        <p>Werk het liefst met twee of drie mensen van verschillende opleidingen. Juist verschillende perspectieven maken je idee sterker. Iemand die niet bij de masterclass was, mag ook meedoen. Wel even zelf aanmelden. Zoek je teamgenoten, of heeft je team nog plek? Geef dat aan bij je aanmelding, dan helpen we je om elkaar te vinden.</p>
+        <p>Liever alleen? Prima! Betrek wel mensen die de drempel zelf tegenkomen.</p>
+      </section>
+
+      <section class="inhoud">
+        <h2>Wat stuur je in?</h2>
+        <p>Uiterlijk maandag 1 maart 2027 stuur je je uitgewerkte idee in, met je antwoorden op de vier vragen. De vorm kies je zelf, bijvoorbeeld een video, een reel, een visueel concept, een prototype of een tekst. Je idee hoeft niet perfect of af te zijn, en een projectplan is niet nodig. Hoe je instuurt, mailen we je later.</p>
+      </section>
+
+      <section class="inhoud">
+        <h2>De Showcase</h2>
+        <p>In maart is het jouw moment! In een korte pitch presenteer je je idee aan ervaringsdeskundigen, professionals uit de culturele sector en de gemeente Den Haag. Is je idee nieuw en kansrijk? Dan kijken we samen of het werkelijkheid kan worden. En natuurlijk blijft het idee van jou!</p>
+      </section>
+
+      <section class="inhoud">
+        <h2 lang="en">Save the dates</h2>
+        <ul class="dates">
+          <li>
+            <strong>Tot en met vrijdag 11 december 2026</strong>
+            Aanmelden, alleen of met een team.
+          </li>
+          <li>
+            <strong>Uiterlijk maandag 14 december 2026</strong>
+            We mailen je dat de toolkit met tips op deze website staat. Zocht je een team? Dan hoor je met wie je samenwerkt. En je krijgt de datum van het online gesprek.
+          </li>
+          <li>
+            <strong>Januari 2027</strong>
+            Een online gesprek met professionals en ervaringsdeskundigen. Je vertelt over je drempel en je eerste plannen, en stelt je vragen.
+          </li>
+          <li>
+            <strong>Februari 2027</strong>
+            Je werkt je idee uit. Wij mailen je tips.
+          </li>
+          <li>
+            <strong>Maandag 1 maart 2027</strong>
+            Je stuurt je uitgewerkte idee in.
+          </li>
+          <li>
+            <strong>Half of eind maart 2027</strong>
+            De Mind the Difference Showcase. Datum en plek volgen.
+          </li>
+        </ul>
+      </section>
+
+      <section class="inhoud">
+        <h2>Vragen? <span lang="en">Let us know!</span></h2>
+        <p>Kom je er niet uit, zoek je iemand die de drempel zelf tegenkomt of heb je een andere vraag? Mail ons op <a href="mailto:contact@incultuur.nl">contact@incultuur.nl (opent je mailprogramma)</a>. We denken met je mee.</p>
+      </section>
+
+      <div class="toegankelijkheid-blok">
+        <h2>Toegankelijkheid</h2>
+        <p>We houden contact per mail. Het online gesprek is in Teams, in je browser, met live ondertiteling. Heb je iets nodig om mee te kunnen doen? Laat het ons weten via <a href="mailto:contact@incultuur.nl">contact@incultuur.nl (opent je mailprogramma)</a>.</p>
+      </div>
+
+      <div class="finale">
+        <h2 lang="en">Ready to make a difference?</h2>
+        <p>Doe mee aan de Mind the Difference Challenge! Meedoen is gratis.</p>
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLScA5DObGrM7zHolN38nJ-neDX0IVz84jUZz-3UOut-w_Ai8MA/viewform" target="_blank" rel="noopener">Ja, ik doe mee →</a>
+        <p style="font-size: 0.85rem; margin: 1rem 0 0; opacity: 0.85;">(Opent het aanmeldformulier in Google Forms)</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Mind the Difference is een initiatief van <strong>InCultuur</strong>, mogelijk gemaakt door de <strong>gemeente Den Haag</strong> en in samenwerking met het <strong>No Limits Festival</strong>.</p>
+    <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+      Vragen? Mail naar <a href="mailto:contact@incultuur.nl">contact@incultuur.nl</a>
+    </p>
+  </footer>
+
+</body>
+</html>
